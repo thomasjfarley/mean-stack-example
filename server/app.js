@@ -8,9 +8,17 @@ require('dotenv/config');
 app.use(cors());
 app.use(bodyParser.json());
 
-const recipeRoute = require('./routes/recipes')
+app.get('/', (req, res) => {
+    res.send('Welcome to the recipe book')
+})
 
-app.use('/recipes', recipeRoute)
+//Import Routes
+const recipeRoute = require('./routes/recipes')
+const authRoute = require('./routes/auth')
+
+//Route Middleware
+app.use('/api/recipes', recipeRoute)
+app.use('/api/user', authRoute)
 
 
 mongoose.connect(process.env.DB_CONNECTION, () => {

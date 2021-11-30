@@ -1,10 +1,10 @@
-const express = require('express');
-const router = express.Router();
+const router = require('express').Router();
 const Recipe = require('../schemas/recipe-schema');
+const verify = require('./verify-token')
 
 
 //gets all Recipes
-router.get('/', async (req, res) => {
+router.get('/', verify, async (req, res) => {
     try {
         const recipes = await Recipe.find()
         res.json(recipes)
