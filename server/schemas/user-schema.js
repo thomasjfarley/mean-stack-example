@@ -33,7 +33,7 @@ const userSchema = new mongoose.Schema( {
     },
     birthDate: {
         type: Date,
-        required: true,
+        required: false,
     },
     date: {
         type: Date,

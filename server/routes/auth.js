@@ -14,9 +14,6 @@ router.post( '/register', async ( req, res ) => {
     const emailExists = await User.findOne( { email: req.body.email } );
     if ( emailExists ) return res.status( 400 ).send( 'Email already exists' );
     
-    const phoneExists = await User.findOne( { phone: req.body.phone } );
-    if ( phoneExists ) return res.status( 400 ).send( 'Phone already exists' );
-    
     //Hash passwords
     const salt = await bcrypt.genSalt( 10 );
     const hashPassword = await bcrypt.hash( req.body.password, salt );
@@ -25,7 +22,9 @@ router.post( '/register', async ( req, res ) => {
         firstName: req.body.firstName,
         lastName: req.body.lastName,
         email: req.body.email,
+        phone: req.body.phone,
         password: hashPassword,
+        birthDate: req.body.birthDate,
     } );
     try {
         const savedUser = await user.save();
@@ -50,7 +49,9 @@ router.post( '/login', async ( req, res ) => {
     
     //create and assign a token
     const token = jwt.sign( { _id: user._id }, process.env.TOKEN_SECRET );
+    // res.send(user);
     res.header( 'auth-token', token ).send( token );
 } );
 
 module.exports = router;
+

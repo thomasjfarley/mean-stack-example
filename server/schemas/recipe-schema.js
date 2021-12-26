@@ -1,6 +1,6 @@
-const mongoose = require('mongoose');
+const mongoose = require( 'mongoose' );
 
-const RecipeSchema = mongoose.Schema({
+const RecipeSchema = mongoose.Schema( {
     author: {
         type: String,
         required: true,
@@ -9,7 +9,7 @@ const RecipeSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    ingredients: [{
+    ingredients: [ {
         ingredient: {
             type: String,
             required: true,
@@ -18,8 +18,8 @@ const RecipeSchema = mongoose.Schema({
             type: String,
             required: true,
         }
-    }],
-    directions: [{
+    } ],
+    directions: [ {
         step: {
             type: Number,
             required: true,
@@ -28,15 +28,18 @@ const RecipeSchema = mongoose.Schema({
             type: String,
             required: true,
         }
-    }],
+    } ],
     date: {
         type: Date,
         default: Date.now()
     },
-    publicRecipe: Boolean,
+    publicRecipe: {
+        type: Boolean,
+        required: true
+    },
     mealRating: Number,
     simplicityRating: Number,
-})
+} );
 
 
-module.exports = mongoose.model('recipe', RecipeSchema, 'recipes')
+module.exports = mongoose.model( 'recipe', RecipeSchema, 'recipes' );
