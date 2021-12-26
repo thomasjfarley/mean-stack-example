@@ -11,7 +11,7 @@ router.get('/', verify, async (req, res) => {
     } catch (err) {
         res.json({message: err})
     }
-})
+});
 
 
 //get a specific recipe
@@ -24,10 +24,10 @@ router.get('/:recipeId', async (req, res) => {
     }
 })
 
-
 //creates a new recipe
 router.post('/', async (req, res) => {
     const post = new Recipe({
+        author: req.body.author,
         name: req.body.name,
         ingredients: req.body.ingredients,
         directions: req.body.directions,
@@ -43,7 +43,7 @@ router.post('/', async (req, res) => {
 //delete recipes
 router.delete('/:recipeId', async (req, res) => {
     try {
-        const removeVillain = await Recipe.remove({_id: req.params.recipeId})
+        const removeVillain = await Recipe.deleteOne({_id: req.params.recipeId})
         res.json(removeVillain)
     } catch (err) {
         res.json({message: err})

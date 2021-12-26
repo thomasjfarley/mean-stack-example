@@ -7,6 +7,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatButtonModule} from "@angular/material/button";
 import {ImageUploaderModule} from "./Materials/image-uploader/image-uploader.module";
+import {HttpClientModule} from "@angular/common/http";
+
 
 
 @NgModule({
@@ -20,6 +22,7 @@ import {ImageUploaderModule} from "./Materials/image-uploader/image-uploader.mod
     MatToolbarModule,
     MatButtonModule,
     ImageUploaderModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

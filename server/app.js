@@ -3,6 +3,7 @@ const app = express()
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser')
 const cors = require('cors')
+
 require('dotenv/config');
 
 app.use(cors());
@@ -15,10 +16,12 @@ app.get('/', (req, res) => {
 //Import Routes
 const recipeRoute = require('./routes/recipes')
 const authRoute = require('./routes/auth')
+const imageRoute = require('./routes/images')
 
 //Route Middleware
 app.use('/api/recipes', recipeRoute)
 app.use('/api/user', authRoute)
+app.use('/api/images', imageRoute)
 
 
 mongoose.connect(process.env.DB_CONNECTION, () => {

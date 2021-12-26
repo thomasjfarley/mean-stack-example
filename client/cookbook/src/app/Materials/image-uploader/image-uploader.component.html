@@ -1,9 +1,22 @@
 <div class="w-25 h-25 card d-flex flex-column justify-content-end">
-  <input type="file" id="myFileInput" />
-  <div class="col-12 d-flex justify-content-center">
-    <button mat-raised-button
-            onclick="document.getElementById('myFileInput').click()"
-    ><i class="fa-solid fa-arrow-up-from-bracket"></i>Select a file
-    </button>
+<!--  <input type="file" id="myFileInput" accept="image/*"/>-->
+<!--  <div class="col-12 d-flex justify-content-center">-->
+<!--    <button mat-raised-button-->
+<!--            onclick="document.getElementById('myFileInput').click()"-->
+<!--    ><i class="fa-solid fa-arrow-up-from-bracket"></i>Select a file-->
+<!--    </button>-->
+<!--    <button mat-raised-button (click)="postImage()">Submit</button>-->
+<!--  </div>-->
+  <input (change)="onImagePicked($event)" placeholder="Upload Image"
+         type="file" />
+  <button (click)="onImageUpload()">Upload Image</button>
+
+  <div *ngIf="imageUrl">
+    Preview Image from AWS
+    <br />
+    <img width="200px" src="https://YOUR S3 BUCKET
+     NAME.s3.amazonaws.com/{{
+     imageUrl }}"
+    />
   </div>
 </div>
