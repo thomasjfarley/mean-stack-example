@@ -1,9 +1,12 @@
-<app-top-menu></app-top-menu>
-<div class="d-flex justify-content-center w-100 flex-wrap h-100">
-  <mat-card class="col-8 d-flex justify-content-center flex-wrap">
-    <div mat-card-content class="col-12 d-flex justify-content-center">
-      <app-image-uploader class="col-12"></app-image-uploader>
-    </div>
-  </mat-card>
+<div class="h-100 d-flex flex-wrap overflow-hidden">
+  <app-top-menu class="col-12" style="height: 3vh;"></app-top-menu>
+  <div class="d-flex justify-content-center w-100 flex-wrap" style="margin-top: -15px">
+    <mat-card class="col-8 overflow-auto" style="height: 95vh">
+      <div mat-card-content class="col-12 d-flex justify-content-center">
+        <app-login></app-login>
+      </div>
+    </mat-card>
+  </div>
 </div>
+
 
