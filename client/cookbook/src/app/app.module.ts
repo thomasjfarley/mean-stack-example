@@ -17,6 +17,9 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { MyRecipesComponent } from './components/my-recipes/my-recipes.component';
 import { RecipeCardComponent } from './components/recipe-card/recipe-card.component';
 import { RecipeComponent } from './components/recipe/recipe.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule( {
@@ -40,6 +43,9 @@ import { RecipeComponent } from './components/recipe/recipe.component';
     MatCardModule,
     TopMenuModule,
     FontAwesomeModule,
+    MatFormFieldModule,
+    MatInputModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [ AppComponent ]

@@ -1,1 +1,33 @@
-<p>login works!</p>
+<div class="col-12 h-25 d-flex flex-column justify-content-center p-0" style="background-color: lightgray">
+  <div class="w-100 d-flex justify-content-center">
+    <h1>Welcome to the Foodie Fam!</h1>
+  </div>
+</div>
+<div class="h-75 d-flex pt-5 mt-5">
+  <div class="col-6">
+    <ul>
+      <li><h2>Create Recipes</h2></li>
+      <li><h2>Share Recipes</h2></li>
+      <li><h2>Cook Better</h2></li>
+    </ul>
+  </div>
+  <div class="col-6">
+    <h4 class="m-0">Login</h4>
+    <form [formGroup]="loginForm">
+      <mat-form-field class="w-100">
+        <input matInput type="email" id="email" placeholder="Email" formControlName="email">
+      </mat-form-field>
+      <mat-form-field class="w-100">
+        <input matInput type="password" id="password" placeholder="Password" formControlName="password">
+      </mat-form-field>
+    </form>
+    <div class="w-100 d-flex justify-content-between">
+      <p>Not a member? <a href=""> Sign up!</a></p>
+      <button mat-raised-button color="primary" (click)="login()">Sign In</button>
+    </div>
+    <div class="w-100 d-flex flex-column align-items-center">
+      <a href="">Forgot Username</a>
+      <a href="">Forgot Password</a>
+    </div>
+  </div>
+</div>
